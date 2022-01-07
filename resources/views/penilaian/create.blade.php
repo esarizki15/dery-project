@@ -29,21 +29,21 @@
                         @endforeach
                     </x-select>
 
-                    <x-input globalAttribute="kehadiran" type="number" label="Kehadiran" :defaultValue="old('kehadiran')" customAttribute="required min=0" />
+                    <x-input globalAttribute="kehadiran" type="number" label="Kehadiran" :defaultValue="old('kehadiran')" customAttribute="required min=0 max=100" />
 
-                    <x-input globalAttribute="disiplin" type="number" label="Disiplin" :defaultValue="old('disiplin')" customAttribute="required min=0" />
+                    <x-input globalAttribute="disiplin" type="number" label="Disiplin" :defaultValue="old('disiplin')" customAttribute="required min=0 max=100" />
 
-                    <x-input globalAttribute="dedikasi" type="number" label="Dedikasi" :defaultValue="old('dedikasi')" customAttribute="required min=0" />
+                    <x-input globalAttribute="dedikasi" type="number" label="Dedikasi" :defaultValue="old('dedikasi')" customAttribute="required min=0 max=100" />
 
-                    <x-input globalAttribute="komunikasi" type="number" label="Komunikasi" :defaultValue="old('komunikasi')" customAttribute="required min=0" />
+                    <x-input globalAttribute="komunikasi" type="number" label="Komunikasi" :defaultValue="old('komunikasi')" customAttribute="required min=0 max=100" />
 
-                    <x-input globalAttribute="kerjasama" type="number" label="Kerja Sama" :defaultValue="old('kerjasama')" customAttribute="required min=0" />
+                    <x-input globalAttribute="kerjasama" type="number" label="Kerja Sama" :defaultValue="old('kerjasama')" customAttribute="required min=0 max=100" />
 
-                    <x-input globalAttribute="kepatuhan" type="number" label="Kepatuhan" :defaultValue="old('kepatuhan')" customAttribute="required min=0" />
+                    <x-input globalAttribute="kepatuhan" type="number" label="Kepatuhan" :defaultValue="old('kepatuhan')" customAttribute="required min=0 max=100" />
 
-                    <x-input globalAttribute="kepuasan_pelanggan" type="number" label="Kepuasan Pelanggan" :defaultValue="old('kepuasan_pelanggan')" customAttribute="required min=0" />
+                    <x-input globalAttribute="kepuasan_pelanggan" type="number" label="Kepuasan Pelanggan" :defaultValue="old('kepuasan_pelanggan')" customAttribute="required min=0 max=100" />
 
-                    <x-input globalAttribute="pemahaman_tupoksi" type="number" label="Pemahaman Tupoksi" :defaultValue="old('pemahaman_tupoksi')" customAttribute="required min=0" />
+                    <x-input globalAttribute="pemahaman_tupoksi" type="number" label="Pemahaman Tupoksi" :defaultValue="old('pemahaman_tupoksi')" customAttribute="required min=0 max=100" />
 
                     <x-submit-button />
                 </form>

@@ -20,9 +20,9 @@ class Penilaian extends Model
     // kepuasan_pelanggan, pemahaman_tupoksi
 
     public function nilai() {
-        $alpha = ($this->kehadiran + $this->disiplin + $this->dedikasi) * 0.5;
-        $gama = ($this->komunikasi + $this->kerjasama + $this->kepatuhan) * 0.3;
-        $beta = ($this->kepuasan_pelanggan + $this->pemahaman_tupoksi) * 0.2;
+        $alpha = (($this->kehadiran + $this->disiplin + $this->dedikasi) * 0.5) / 3;
+        $gama = (($this->komunikasi + $this->kerjasama + $this->kepatuhan) * 0.3) / 3;
+        $beta = (($this->kepuasan_pelanggan + $this->pemahaman_tupoksi) * 0.2) / 2;
 
         $total = $alpha + $gama + $beta;
         if($total > 95) {
