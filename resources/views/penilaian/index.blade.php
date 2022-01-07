@@ -1,0 +1,60 @@
+@extends('layouts.admin-lte.main')
+
+@section('title')
+    
+@endsection
+@section('breadcrumb')
+<li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
+<li class="breadcrumb-item active">Penilaian</li>
+@endsection
+@section('content')
+<div class="container-fluid">
+    <div class="row justify-content-center">
+      <div class="col-md-12">
+        @include('partial.alert')
+        <div class="card">
+            <div class="card-header header-primary">Penilaian</div>
+
+            <div class="card-body">
+                <p><a href="{{ route('penilaian.create') }}" class="btn btn-sm btn-primary">Buat</a></p>
+                <table class="table table-hover display nowrap" style="width:100%">
+                    <thead>
+                        <tr>
+                        <th scope="col">Nama</th>
+                        <th scope="col">Kehadiran</th>
+                        <th scope="col">Disiplin</th>
+                        <th scope="col">Dedikasi</th>
+                        <th scope="col">Komunikasi</th>
+                        <th scope="col">Kerja Sama</th>
+                        <th scope="col">Kepatuhan</th>
+                        <th scope="col">Kepuasan Pelanggan</th>
+                        <th scope="col">Pemahaman Tupoksi</th>
+                        <th scope="col">Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($penilaian as $data)
+                            <tr>
+                                <td>{{ $data->user->name }}</td>
+                                <td>{{ $data->kehadiran }}</td>
+                                <td>{{ $data->disiplin }}</td>
+                                <td>{{ $data->dedikasi }}</td>
+                                <td>{{ $data->komunikasi }}</td>
+                                <td>{{ $data->kerjasama }}</td>
+                                <td>{{ $data->kepatuhan }}</td>
+                                <td>{{ $data->kepuasan_pelanggan }}</td>
+                                <td>{{ $data->pemahaman_tupoksi }}</td>
+                                <td>
+                                    @include('partial.action', ['data' => $data, 'route'=>'penilaian'])
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
+      </div>
+    </div>
+</div>
+@include('partial.dataTable')
+@endsection

@@ -32,7 +32,7 @@ class UserSeeder extends Seeder
         $user->name = "Admin Laravel";
         $user->email = "admin@gmail.com";
         $user->password = bcrypt("rahasia");
-        $user->role_id = $role->id; 
+        $user->role_id = 1; 
         $user->save();
 
         $user = new User();
