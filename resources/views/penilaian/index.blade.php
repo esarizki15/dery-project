@@ -29,6 +29,7 @@
                         <th scope="col">Kepatuhan</th>
                         <th scope="col">Kepuasan Pelanggan</th>
                         <th scope="col">Pemahaman Tupoksi</th>
+                        <th scope="col">Nilai</th>
                         <th scope="col">Aksi</th>
                         </tr>
                     </thead>
@@ -44,6 +45,7 @@
                                 <td>{{ $data->kepatuhan }}</td>
                                 <td>{{ $data->kepuasan_pelanggan }}</td>
                                 <td>{{ $data->pemahaman_tupoksi }}</td>
+                                <td>{{ strtoupper($data->nilai()) }}</td>
                                 <td>
                                     @include('partial.action', ['data' => $data, 'route'=>'penilaian'])
                                 </td>
