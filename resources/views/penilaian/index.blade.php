@@ -47,7 +47,9 @@
                                 <td>{{ $data->pemahaman_tupoksi }}</td>
                                 <td>{{ strtoupper($data->nilai()) }}</td>
                                 <td>
-                                    @include('partial.action', ['data' => $data, 'route'=>'penilaian'])
+                                    <x-action route="penilaian" :object="$data">
+                                        <button id="{{ $data->id }}" type="button" class="btn btn-xs btn-tindak btn-secondary">Tindak</button>
+                                    </x-action>
                                 </td>
                             </tr>
                         @endforeach
@@ -58,5 +60,5 @@
       </div>
     </div>
 </div>
-@include('partial.dataTable')
 @endsection
+@include('partial.dataTable')

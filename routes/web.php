@@ -24,3 +24,4 @@ Route::resource('profile', 'ProfileController')->middleware('auth');
 Route::resource('user', 'UserController')->middleware('auth');
 Route::resource('role', 'RoleController')->middleware('auth');
 Route::resource('penilaian', 'PenilaianController')->middleware('auth');
+Route::resource('status-perpanjang', 'StatusPerpanjangController')->middleware('auth');

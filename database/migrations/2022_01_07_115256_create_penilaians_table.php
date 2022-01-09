@@ -15,7 +15,8 @@ class CreatePenilaiansTable extends Migration
     {
         Schema::create('penilaians', function (Blueprint $table) {
             $table->id();
-            $table->unsignedTinyInteger('user_id');
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('penilai_id');
             $table->integer('kehadiran');
             $table->integer('disiplin');
             $table->integer('dedikasi');
@@ -25,6 +26,7 @@ class CreatePenilaiansTable extends Migration
             $table->integer('kepuasan_pelanggan');
             $table->integer('pemahaman_tupoksi');
             $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade');
+            $table->foreign('penilai_id')->references('id')->on('users')->onUpdate('cascade');
             $table->timestamps();
         });
     }

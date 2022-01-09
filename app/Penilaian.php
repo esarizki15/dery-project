@@ -3,12 +3,17 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Auth;
 
 class Penilaian extends Model
 {
-    protected $fillable = ['user_id', 'kehadiran', 'disiplin', 'dedikasi', 'komunikasi', 'kerjasama', 'kepatuhan', 'kepuasan_pelanggan', 'pemahaman_tupoksi']; 
+    protected $fillable = ['user_id', 'penilai_id', 'kehadiran', 'disiplin', 'dedikasi', 'komunikasi', 'kerjasama', 'kepatuhan', 'kepuasan_pelanggan', 'pemahaman_tupoksi']; 
 
     public function user() {
+        return $this->belongsTo('App\User');
+    }
+    
+    public function penilai() {
         return $this->belongsTo('App\User');
     }
 
@@ -56,5 +61,24 @@ class Penilaian extends Model
                 return "Sangat Kurang";
                 break;
         }
+    }
+
+    public static function boot()
+    {
+        parent::boot();
+
+        self::creating(function($model){
+            $user = Auth::user();
+            if($user){
+                $model->penilai_id = $user->id;
+            }
+        });
+
+        self::updating(function($model){
+            $user = Auth::user();
+            if($user){
+                $model->penilai_id = $user->id;
+            }
+        });
     }
 }
