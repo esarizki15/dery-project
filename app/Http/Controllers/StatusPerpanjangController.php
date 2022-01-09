@@ -39,12 +39,12 @@ class StatusPerpanjangController extends Controller
         $status = 'Data stored!';
         $success = true;
         try{
-            StatusPerpanjang::updateOrCreate(
-                [
-                    'penilaian_id' => $request->penilaian_id,
-                    'created_at' => Carbon::today(),
-                ], 
-                $request->all());
+            $data = StatusPerpanjang::where('penilaian_id', $request->penilaian_id)->whereDate('created_at', Carbon::today())->first();
+            if(!empty($data)) {
+                $data->update($request->all());
+            }else{
+                $data = StatusPerpanjang::Create($request->all());
+            }
         }catch(\Throwable $e){
             $status = $e->getMessage();
             $success = false;
