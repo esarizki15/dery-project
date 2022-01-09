@@ -75,6 +75,14 @@
                 </a>
               </li>
             @endif
+            <li class="nav-item">
+              <a href="{{ route('status-perpanjang.index') }}" class="nav-link {{ (request()->is('status-perpanjang*')) ? 'active' : '' }}">
+                <i class="nav-icon fas fa-book"></i>
+                <p>
+                  Status Perpanjang
+                </p>
+              </a>
+            </li>
           @endguest
         </ul>
         @auth

@@ -20,6 +20,7 @@
                 <table class="table table-hover display nowrap" style="width:100%">
                     <thead>
                         <tr>
+                        <th scope="col">ID</th>
                         <th scope="col">Nama</th>
                         <th scope="col">Kehadiran</th>
                         <th scope="col">Disiplin</th>
@@ -36,6 +37,7 @@
                     <tbody>
                         @foreach ($penilaian as $data)
                             <tr>
+                                <td>{{ $data->id }}</td>
                                 <td>{{ $data->user->name }}</td>
                                 <td>{{ $data->kehadiran }}</td>
                                 <td>{{ $data->disiplin }}</td>

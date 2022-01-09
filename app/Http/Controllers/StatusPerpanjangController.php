@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\StatusPerpanjang;
 use Illuminate\Http\Request;
 use \Carbon\Carbon;
-
+use Auth;
 class StatusPerpanjangController extends Controller
 {
     /**
@@ -15,7 +15,15 @@ class StatusPerpanjangController extends Controller
      */
     public function index()
     {
-        //
+        $allData = StatusPerpanjang::all();
+        if(Auth::user()->role_id == 4){
+            $allData = StatusPerpanjang::whereHas('penilaian', function ($query){
+                $query->whereHas('user', function ($queryUser){
+                    $queryUser->where('role_id', Auth::user()->id);
+                });
+            })->get();
+        }
+        return view('status-perpanjang.index', compact('allData'));
     }
 
     /**
