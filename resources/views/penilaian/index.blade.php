@@ -50,7 +50,9 @@
                                 <td>{{ strtoupper($data->nilai()) }}</td>
                                 <td>
                                     <x-action route="penilaian" :object="$data">
+                                        @if(Auth::user()->role_id == 1 || Auth::user()->role_id == 3)
                                         <button id="{{ $data->id }}" type="button" class="btn btn-xs btn-tindak btn-secondary">Tindak</button>
+                                        @endif
                                     </x-action>
                                 </td>
                             </tr>
