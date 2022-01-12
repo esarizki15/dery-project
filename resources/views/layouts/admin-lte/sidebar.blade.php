@@ -51,7 +51,7 @@
                 </p>
               </a>
             </li>
-            @if (Auth::user()->role->id == 1)
+            @if (Auth::user()->role->id != 4)
               <li class="nav-item">
                 <a href="{{ route('penilaian.index') }}" class="nav-link {{ (request()->is('penilaian*')) ? 'active' : '' }}">
                   <i class="nav-icon fas fa-star"></i>
@@ -60,6 +60,16 @@
                   </p>
                 </a>
               </li>
+            @endif
+            <li class="nav-item">
+              <a href="{{ route('status-perpanjang.index') }}" class="nav-link {{ (request()->is('status-perpanjang*')) ? 'active' : '' }}">
+                <i class="nav-icon fas fa-book"></i>
+                <p>
+                  Status Perpanjang
+                </p>
+              </a>
+            </li>
+            @if (Auth::user()->role->id == 1)
               <li class="nav-item">
                 <a href="{{ route('user.index') }}" class="nav-link {{ (request()->is('user*')) ? 'active' : '' }}">
                   <i class="nav-icon fas fa-user"></i>
@@ -75,14 +85,6 @@
                 </a>
               </li>
             @endif
-            <li class="nav-item">
-              <a href="{{ route('status-perpanjang.index') }}" class="nav-link {{ (request()->is('status-perpanjang*')) ? 'active' : '' }}">
-                <i class="nav-icon fas fa-book"></i>
-                <p>
-                  Status Perpanjang
-                </p>
-              </a>
-            </li>
           @endguest
         </ul>
         @auth

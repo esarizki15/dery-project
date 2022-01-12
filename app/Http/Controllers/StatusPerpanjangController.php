@@ -19,7 +19,7 @@ class StatusPerpanjangController extends Controller
         if(Auth::user()->role_id == 4){
             $allData = StatusPerpanjang::whereHas('penilaian', function ($query){
                 $query->whereHas('user', function ($queryUser){
-                    $queryUser->where('role_id', Auth::user()->id);
+                    $queryUser->where('id', Auth::user()->id);
                 });
             })->get();
         }
@@ -44,10 +44,11 @@ class StatusPerpanjangController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request->all());
         $status = 'Data stored!';
         $success = true;
         try{
-            $data = StatusPerpanjang::where('penilaian_id', $request->penilaian_id)->whereDate('created_at', Carbon::today())->first();
+            $data = StatusPerpanjang::where('penilaian_id', $request->penilaian_id)->whereYear('created_at', Carbon::today()->year)->first();
             if(!empty($data)) {
                 $data->update($request->all());
             }else{

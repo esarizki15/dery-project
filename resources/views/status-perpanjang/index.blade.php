@@ -13,7 +13,7 @@
       <div class="col-md-12">
         @include('partial.alert')
         <div class="card">
-            <div class="card-header header-primary">Penilaian</div>
+            <div class="card-header header-primary">Status Penilaian</div>
 
             <div class="card-body">
                 <table class="table table-hover display nowrap" style="width:100%">
@@ -23,6 +23,7 @@
                         <th scope="col">Nama</th>
                         <th scope="col">Nilai</th>
                         <th scope="col">Status Perpanjang</th>
+                        <th scope="col">Tanggal</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -32,6 +33,7 @@
                                 <td>{{ $data->penilaian->user->name }}</td>
                                 <td>{{ strtoupper($data->penilaian->nilai()) }}</td>
                                 <td>{{ $data->status == 1 ? "Ya" : "Tidak" }}</td>
+                                <td>{{ $data->created_at }}</td>
                             </tr>
                         @endforeach
                     </tbody>
